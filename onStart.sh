@@ -14,7 +14,7 @@ sleep 10
 # TODO: Have a bootstrap image that contains bind-utils and also knows
 # the service name, performs nslookup and passes the list of PEERS to this
 # script. We can then remove bind-utils from the zookeeper container image.  
-PEERS=( $(nslookup -type=srv zookeeper.default | grep -oE '[^ ]+$' | grep ^zookeeper*) )
+PEERS=( $(nslookup -type=srv ${ZK_SERVICE}.${ZK_NAMESPACE} | grep -oE '[^ ]+$' | grep ^zookeeper*) )
 
 # Output content of PEERS array to container log.
 echo "Zookeeper PEERS:" ${PEERS[@]}

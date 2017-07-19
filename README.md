@@ -1,4 +1,9 @@
-# Zookeeper in a Kubernetes PetSet
+# Zookeeper in a Kubernetes StatefulSet
+
+# Changes in this fork
+Instead of using the hard-coded service/namespace of *zookeeper/default* this version of the image will read two environment variables: ZK_SERVICE and ZK_NAMESPACE to populate these.
+
+###
 
 These are the things you need to run Zookeeper cluster on Kubernetes. It's based on Zookeeper version 3.5.x which is currently in alpha, but it's been pretty stable to date.
 
